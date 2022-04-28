@@ -16,7 +16,7 @@ export default class Usuarios extends BaseSchema {
       table.string('email', 50).notNullable()
                                .unique()
 
-      table.string('login', 12).notNullable()
+      table.string('login', 16).notNullable()
                                .unique()
 
       table.string('senha', 64).notNullable()

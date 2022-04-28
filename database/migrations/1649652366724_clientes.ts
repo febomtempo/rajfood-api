@@ -18,7 +18,7 @@ export default class Clientes extends BaseSchema {
       
       table.string('endereco', 120).notNullable()
 
-      table.string('login', 12).notNullable()
+      table.string('login', 16).notNullable()
                                .unique()
 
       table.string('senha', 64).notNullable()
