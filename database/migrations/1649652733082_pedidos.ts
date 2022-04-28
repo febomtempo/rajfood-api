@@ -21,6 +21,9 @@ export default class Pedidos extends BaseSchema {
       table.float('total').notNullable()
                           .unsigned()
 
+      table.integer('forma_pagamento').notNullable()
+                                      .unsigned()
+
       table.integer('status').notNullable()
 
 

@@ -1,8 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column, HasMany, hasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
 import Cliente from './Cliente'
 import Restaurante from './Restaurante'
-import Pagamento from './Pagamento'
 import Produto from './Produto'
 
 export default class Pedido extends BaseModel {
@@ -17,6 +16,9 @@ export default class Pedido extends BaseModel {
 
   @column()
   public total: number
+
+  @column()
+  public forma_pagamento: number
 
   @column()
   public status: number
@@ -37,11 +39,6 @@ export default class Pedido extends BaseModel {
     localKey: 'id_restaurante'
   })
   public restaurantes: BelongsTo<typeof Restaurante>
-
-  @hasMany(() => Pagamento, {
-    foreignKey: 'id_pedido'
-  })
-  public pagamentos: HasMany<typeof Pagamento>
 
   @manyToMany(() => Produto)
   public produtos: ManyToMany<typeof Produto>

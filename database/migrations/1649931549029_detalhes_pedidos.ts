@@ -15,15 +15,12 @@ export default class DetalhesPedidos extends BaseSchema {
                                      .unsigned()
                                      .references('id')
                                      .inTable('produtos')
-                                     
-      table.float('valor').notNullable()
-                          .unsigned()
 
       table.integer('quantidade').notNullable()
                                  .unsigned()
 
-      table.float('valor_total').notNullable()
-                                .unsigned()
+      table.float('valor_total_item').notNullable()
+                                     .unsigned()
                           
 
       /**
