@@ -57,7 +57,6 @@ export default class ClientesController {
         cliente.sobrenome = body.sobrenome
         cliente.fone = body.fone
         cliente.email = body.email
-        cliente.endereco = body.endereco
         cliente.login = body.login
         cliente.senha = body.senha
     

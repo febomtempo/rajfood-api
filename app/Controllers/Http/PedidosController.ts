@@ -13,7 +13,7 @@ export default class PedidosController {
 
     
         return {
-          message: 'pedido registrado com sucesso!',
+          message: 'Pedido registrado com sucesso!',
           data: pedido,
         }
     }
@@ -43,8 +43,31 @@ export default class PedidosController {
 
         
         return{
-          message: 'pedido Deletado com sucesso!',
+          message: 'Pedido Deletado com sucesso!',
           data:pedido,
         }
     }
+
+    public async update({params, request}: HttpContextContract){
+      const body = request.body()
+      const pedido = await Pedido.findOrFail(params.id)
+  
+      pedido.id_cliente = body.id_cliente
+      pedido.id_restaurante = body.id_restaurante
+      pedido.id_endereco_cliente = body.id_endereco_cliente
+      pedido.total = body.total
+      pedido.forma_pagamento = body.forma_pagamento
+      pedido.troco = body.troco
+      pedido.status = body.status
+  
+      
+      await pedido.save()
+
+      
+  
+      return{
+        message: 'Pedido Atualizado com Sucesso!',
+        data: pedido,
+      }
+  }
 }

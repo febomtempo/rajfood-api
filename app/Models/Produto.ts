@@ -21,7 +21,10 @@ export default class Produto extends BaseModel {
   public descricao: string
 
   @column()
-  public status: number
+  public tamanho: number
+
+  @column()
+  public status: boolean
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

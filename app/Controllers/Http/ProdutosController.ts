@@ -56,6 +56,7 @@ export default class ProdutosController {
         produto.nome = body.nome
         produto.preco = body.preco
         produto.descricao = body.descricao
+        produto.tamanho = body.tamanho
         produto.status = body.status
     
         

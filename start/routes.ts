@@ -25,12 +25,14 @@ Route.group(()=>{
     return { hello: 'world' }
   })
   Route.resource('/cliente', 'ClientesController').apiOnly()
-  Route.resource('/pedido', 'PedidosController').apiOnly().except(['update'])
+  Route.resource('/pedido', 'PedidosController').apiOnly()
   Route.resource('/produto', 'ProdutosController').apiOnly()
   Route.resource('/restaurante', 'RestaurantesController').apiOnly()
   Route.resource('/tipoProduto', 'TipoProdutosController').apiOnly()
   Route.resource('/usuario', 'UsuariosController').apiOnly()
-  Route.resource('detalhesPedido', 'DetalhesPedidosController').apiOnly()
+  Route.resource('/detalhesPedido', 'DetalhesPedidosController').apiOnly().except(['update'])
+  Route.resource('/endereco', 'EnderecosController').apiOnly()
+  Route.resource('/enderecoCliente', 'EnderecoClientesController').apiOnly().except(['update'])
 
 
 }).prefix('/api')

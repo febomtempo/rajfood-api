@@ -21,7 +21,9 @@ export default class Produtos extends BaseSchema {
       
       table.string('descricao', 120).notNullable()
 
-      table.integer('status').notNullable()
+      table.integer('tamanho').notNullable().defaultTo(0)
+
+      table.boolean('status').notNullable().defaultTo(true)
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
