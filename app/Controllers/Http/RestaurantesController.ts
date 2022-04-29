@@ -53,7 +53,7 @@ export default class RestaurantesController {
         const restaurante = await Restaurante.findOrFail(params.id)
     
         restaurante.nome = body.nome
-        restaurante.descricao = body.sobrenome
+        restaurante.descricao = body.descricao
         restaurante.fone = body.fone
         restaurante.endereco = body.endereco
     

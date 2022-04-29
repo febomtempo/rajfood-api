@@ -51,7 +51,8 @@ export default class EnderecosController {
     public async update({params, request}: HttpContextContract){
         const body = request.body()
         const endereco = await Endereco.findOrFail(params.id)
-    
+
+        endereco.cep = body.cep
         endereco.rua = body.rua
         endereco.bairro = body.bairro
         endereco.cidade = body.cidade
