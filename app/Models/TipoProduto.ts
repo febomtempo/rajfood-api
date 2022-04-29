@@ -12,6 +12,9 @@ export default class TipoProduto extends BaseModel {
   @column()
   public descricao: string
 
+  @column()
+  public tem_tamanho: boolean
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

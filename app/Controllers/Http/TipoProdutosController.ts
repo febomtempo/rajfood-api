@@ -54,6 +54,7 @@ export default class TipoProdutosController {
     
         tipoProduto.nome = body.nome
         tipoProduto.descricao = body.sobrenome
+        tipoProduto.tem_tamanho = body.tem_tamanho
 
         await tipoProduto.save()
 

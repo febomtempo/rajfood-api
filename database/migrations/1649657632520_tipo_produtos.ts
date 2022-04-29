@@ -12,6 +12,8 @@ export default class TipoProdutos extends BaseSchema {
 
       table.string('descricao', 120).notNullable()
 
+      table.boolean('tem_tamanho').notNullable().defaultTo(false)
+
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
