@@ -3,6 +3,7 @@ import Produto from 'App/Models/Produto'
 import Application from '@ioc:Adonis/Core/Application'
 import { v4 as uuidv4 } from 'uuid'
 
+
 export default class ProdutosController {
 
   private validationOptions = {
@@ -15,13 +16,7 @@ export default class ProdutosController {
         const image = request.file('image', this.validationOptions )
 
         if(image){
-          const imageName = `${uuidv4()}.${image.extname}`
-    
-          await image.moveToDisk('./', {
-            name: imageName
-          })
-    
-          body.image = imageName
+          await image.moveToDisk('./', {}, 's3')
         }
     
         const produto = await Produto.create(body)
