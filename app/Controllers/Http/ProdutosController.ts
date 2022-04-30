@@ -75,7 +75,6 @@ export default class ProdutosController {
         produto.precoM = body.precoM
         produto.precoG = body.precoG
         produto.descricao = body.descricao
-        produto.tamanho = body.tamanho
         produto.status = body.status
 
         if(produto.image != body.image || !produto.image){

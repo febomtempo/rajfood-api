@@ -27,9 +27,6 @@ export default class Produto extends BaseModel {
   public descricao: string
 
   @column()
-  public tamanho: number
-
-  @column()
   public status: boolean
 
   @column()

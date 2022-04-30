@@ -16,16 +16,15 @@ export default class Produtos extends BaseSchema {
       table.string('nome', 50).notNullable()
 
       
-      table.float('precoP').unsigned()
+      table.float('preco_p').unsigned()
       
-      table.float('precoM').notNullable()
+      table.float('preco_m').notNullable()
                            .unsigned()
       
-      table.float('precoG').unsigned()
+      table.float('preco_g').unsigned()
       
       table.string('descricao', 120).notNullable()
 
-      table.integer('tamanho').notNullable().defaultTo(0)
 
       table.boolean('status').notNullable().defaultTo(true)
 
