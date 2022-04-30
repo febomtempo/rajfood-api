@@ -2,7 +2,6 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Produto from 'App/Models/Produto'
 import Application from '@ioc:Adonis/Core/Application'
 import { v4 as uuidv4 } from 'uuid'
-import Drive from '@ioc:Adonis/Core/Drive'
 
 export default class ProdutosController {
 
