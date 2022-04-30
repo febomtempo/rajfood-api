@@ -15,7 +15,13 @@ export default class Produto extends BaseModel {
   public nome: string
 
   @column()
-  public preco: number
+  public precoP: number
+
+  @column()
+  public precoM: number
+
+  @column()
+  public precoG: number
 
   @column()
   public descricao: string
@@ -25,6 +31,9 @@ export default class Produto extends BaseModel {
 
   @column()
   public status: boolean
+
+  @column()
+  public image: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

@@ -16,14 +16,20 @@ export default class Produtos extends BaseSchema {
       table.string('nome', 50).notNullable()
 
       
-      table.float('preco').notNullable()
-                          .unsigned()
+      table.float('precoP').unsigned()
+      
+      table.float('precoM').notNullable()
+                           .unsigned()
+      
+      table.float('precoG').unsigned()
       
       table.string('descricao', 120).notNullable()
 
       table.integer('tamanho').notNullable().defaultTo(0)
 
       table.boolean('status').notNullable().defaultTo(true)
+
+      table.string('image', 120)
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
