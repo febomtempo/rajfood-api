@@ -26,7 +26,7 @@ export default class Produtos extends BaseSchema {
       table.string('descricao', 120).notNullable()
 
 
-      table.boolean('status').notNullable().defaultTo(true)
+      table.boolean('ativo').notNullable().defaultTo(true)
 
       table.string('image', 120)
 

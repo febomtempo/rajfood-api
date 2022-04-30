@@ -2,6 +2,7 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Produto from 'App/Models/Produto'
 import Application from '@ioc:Adonis/Core/Application'
 import { v4 as uuidv4 } from 'uuid'
+import Drive from '@ioc:Adonis/Core/Drive'
 
 export default class ProdutosController {
 
@@ -17,7 +18,7 @@ export default class ProdutosController {
         if(image){
           const imageName = `${uuidv4()}.${image.extname}`
     
-          await image.move(Application.tmpPath('uploads'), {
+          await image.moveToDisk('./', {
             name: imageName
           })
     
@@ -75,7 +76,7 @@ export default class ProdutosController {
         produto.precoM = body.precoM
         produto.precoG = body.precoG
         produto.descricao = body.descricao
-        produto.status = body.status
+        produto.ativo = body.ativo
 
         if(produto.image != body.image || !produto.image){
           const image = request.file('image', this.validationOptions )

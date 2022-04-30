@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@adonisjs/core": "^5.7.3",
+    "@adonisjs/drive-s3": "^1.2.0",
     "@adonisjs/lucid": "^17.2.0",
     "@adonisjs/repl": "^3.1.10",
     "luxon": "^2.3.1",

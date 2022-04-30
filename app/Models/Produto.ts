@@ -27,7 +27,7 @@ export default class Produto extends BaseModel {
   public descricao: string
 
   @column()
-  public status: boolean
+  public ativo: boolean
 
   @column()
   public image: string
