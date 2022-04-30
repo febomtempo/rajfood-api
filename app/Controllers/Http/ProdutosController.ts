@@ -15,8 +15,18 @@ export default class ProdutosController {
         const body = request.body()
         const image = request.file('image', this.validationOptions )
 
-        if(image){
+        /*if(image){
           await image.moveToDisk('./', {}, 's3')
+        }*/
+
+        if(image){
+          const imageName = `${uuidv4()}.${image.extname}`
+    
+          await image.move(Application.tmpPath('uploads'), {
+            name: imageName
+          })
+    
+          body.image = imageName
         }
     
         const produto = await Produto.create(body)
