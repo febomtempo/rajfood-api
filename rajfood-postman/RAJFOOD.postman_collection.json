@@ -1,0 +1,1035 @@
+{
+	"info": {
+		"_postman_id": "f9a3e575-11b4-4f7e-81c7-7a2c00cc3c5b",
+		"name": "RAJFOOD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Todos os Clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/cliente",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Cristiano\",\r\n    \"sobrenome\": \"Ronaldo\",\r\n    \"fone\": \"(18) 99125-1234\",\r\n    \"email\": \"cr7@gmail.com\",\r\n    \"login\": \"cr7\",\r\n    \"senha\": \"penaldo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/cliente",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/cliente/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cliente",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Cliente Completo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Cristiano\",\r\n    \"sobrenome\": \"Ronaldo\",\r\n    \"fone\": \"(18) 99333-1534\",\r\n    \"email\": \"cr7@gmail.com\",\r\n    \"login\": \"cr7\",\r\n    \"senha\": \"penaldo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/cliente/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cliente",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/cliente/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"cliente",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Todos os Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/usuario",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Felipe\",\r\n    \"sobrenome\": \"Bomtempo\",\r\n    \"fone\": \"(18) 12345-1234\",\r\n    \"email\": \"felipe@gmail.com\",\r\n    \"login\": \"felipe\",\r\n    \"senha\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/usuario",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 Usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/usuario/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Usuario Completo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Cristiano\",\r\n    \"sobrenome\": \"Ronaldo\",\r\n    \"fone\": \"(18) 99333-1234\",\r\n    \"email\": \"cr7@gmail.com\",\r\n    \"login\": \"cr7\",\r\n    \"senha\": \"penaldo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/usuario/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/usuario/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuario",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restaurante",
+			"item": [
+				{
+					"name": "Todos os Restaurantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/restaurante",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"restaurante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Restaurante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_usuario\": 1,\r\n    \"nome\": \"RAJ FOOD\",\r\n    \"descricao\": \"Pizzas, Lanches e Porções - Tudo em um só lugar!!!\",\r\n    \"fone\": \"(18) 22223-1234\",\r\n    \"endereco\": \"Rua da Índia, 12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/restaurante",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"restaurante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 Restaurante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/restaurante/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"restaurante",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Restaurante Completo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"RAJ FOOD\",\r\n    \"descricao\": \"Pizzas, Lanches e Porções - Tudo em um só lugar!\",\r\n    \"fone\": \"(18) 22223-1234\",\r\n    \"endereco\": \"Rua da Índia, 12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/restaurante/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"restaurante",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Restaurante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/restaurante/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"restaurante",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Endereco",
+			"item": [
+				{
+					"name": "Todos os Endereços",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/endereco",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Endereço",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cep\": \"15100-000\",\r\n    \"rua\": \"Rua dos Penaltis\",\r\n    \"bairro\": \"Bairro Alto\",\r\n    \"cidade\": \"Lisboa\",\r\n    \"estado\": \"Estremadura\",\r\n    \"numero\": \"7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/endereco",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 Endereço",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/endereco/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"endereco",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Endereço Completo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cep\": \"15100-000\",\r\n    \"rua\": \"Rua dos Penaltis\",\r\n    \"bairro\": \"Bairro Alto\",\r\n    \"cidade\": \"Lisboa\",\r\n    \"estado\": \"Estremadura\",\r\n    \"numero\": \"7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/endereco/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"endereco",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Endereço",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/endereco/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"endereco",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EnderecoCliente",
+			"item": [
+				{
+					"name": "Todos os EndereçosClientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/enderecoCliente",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"enderecoCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar EndereçoCliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_endereco\": 2,\r\n    \"id_cliente\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/enderecoCliente",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"enderecoCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 EndereçoCliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/enderecoCliente/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"enderecoCliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar EndereçoCliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_endereco\": 2,\r\n    \"id_cliente\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/enderecoCliente/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"enderecoCliente",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar EndereçoCliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/enderecoCliente/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"enderecoCliente",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoProduto",
+			"item": [
+				{
+					"name": "Todos os TipoProdutos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/tipoProduto",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipoProduto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar TipoProdutos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Porção\",\r\n    \"descricao\": \"Porções Variadas para aquela resenha com os amigos!\",\r\n    \"tem_tamanho\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/tipoProduto",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipoProduto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 TipoProdutos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/tipoProduto/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipoProduto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar TipoProdutos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Porção\",\r\n    \"descricao\": \"Porções Variadas para aquela resenha com os amigos!\",\r\n    \"tem_tamanho\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/tipoProduto/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipoProduto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar TipoProdutos",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/tipoProduto/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tipoProduto",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Todos os Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/produto",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_tipo_produto\": 1,\r\n    \"nome\": \"Catubresa\",\r\n    \"preco\": 35,\r\n    \"descricao\": \"Molho de tomate, calabresa moída e catupiry\",\r\n    \"tamanho\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/produto",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 Produto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/produto/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"produto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Produto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_tipo_produto\": 1,\r\n    \"nome\": \"Catubresa\",\r\n    \"preco\": 35,\r\n    \"descricao\": \"Molho de tomate, calabresa moída e catupiry\",\r\n    \"tamanho\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/produto/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"produto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/produto/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"produto",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "Todos os Pedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/pedido",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Pedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_cliente\": 1,\r\n    \"id_restaurante\": 1,\r\n    \"id_endereco_cliente\": 1,\r\n    \"total\": 35,\r\n    \"forma_pagamento\": 1,\r\n    \"troco\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/pedido",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 Pedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/pedido/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Pedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_cliente\": 1,\r\n    \"id_restaurante\": 1,\r\n    \"id_endereco_cliente\": 1,\r\n    \"total\": 35,\r\n    \"forma_pagamento\": 1,\r\n    \"troco\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/pedido/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/pedido/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"pedido",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DetalhesPedido",
+			"item": [
+				{
+					"name": "Todos os DetalhesPedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/detalhesPedido",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"detalhesPedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar DetalhesPedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pedido\": 1,\r\n    \"id_produto\": 3,\r\n    \"quantidade\": 1,\r\n    \"valor_total_item\": 35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/detalhesPedido",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"detalhesPedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Encontrar 1 DetalhesPedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/detalhesPedido/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"detalhesPedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar DetalhesPedido",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_pedido\": 1,\r\n    \"id_produto\": 3,\r\n    \"quantidade\": 1,\r\n    \"valor_total_item\": 35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/detalhesPedido/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"detalhesPedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar DetalhesPedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/detalhesPedido/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"detalhesPedido",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3333/api",
+			"type": "default"
+		}
+	]
+}
