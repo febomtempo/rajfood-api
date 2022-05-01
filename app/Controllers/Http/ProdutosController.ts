@@ -1,8 +1,15 @@
+import { Exception } from '@adonisjs/core/build/standalone';
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Produto from 'App/Models/Produto'
-import Application from '@ioc:Adonis/Core/Application'
-import { v4 as uuidv4 } from 'uuid'
+import cloudinary from 'cloudinary'
+import Env from '@ioc:Adonis/Core/Env'
 
+
+cloudinary.v2.config({ 
+  cloud_name: Env.get('CLOUD_NAME'), 
+  api_key: Env.get('API_KEY'), 
+  api_secret: Env.get('API_SECRET'), 
+});
 
 export default class ProdutosController {
 
@@ -14,12 +21,25 @@ export default class ProdutosController {
     public async store({ request, response }: HttpContextContract) {
         const body = request.body()
         const image = request.file('image', this.validationOptions )
+        if(image){
+          const tmpPath = image.tmpPath || ''
+          //console.log(image)
+          try{
+          const result = await cloudinary.v2.uploader.upload(tmpPath)
+          body.image = result?.url
+          }catch{
+          body.image = undefined
+          }
+        }
+        
+        
+  
 
         /*if(image){
-          await image.moveToDisk('./', {}, 's3')
+          await image.moveToDisk('rajfood')
         }*/
 
-        if(image){
+        /* if(image){
           const imageName = `${uuidv4()}.${image.extname}`
     
           await image.move(Application.tmpPath('uploads'), {
@@ -27,7 +47,9 @@ export default class ProdutosController {
           })
     
           body.image = imageName
-        }
+        } */
+
+        
     
         const produto = await Produto.create(body)
     
@@ -82,19 +104,19 @@ export default class ProdutosController {
         produto.descricao = body.descricao
         produto.ativo = body.ativo
 
-        if(produto.image != body.image || !produto.image){
-          const image = request.file('image', this.validationOptions )
+        const image = request.file('image', this.validationOptions )
           
-          if(image){
-            const imageName = `${uuidv4()}.${image.extname}`
-    
-            await image.move(Application.tmpPath('uploads'), {
-              name: imageName
-            })
-    
-            produto.image = imageName
+        if(image){
+            const tmpPath = image.tmpPath || ''
+            //console.log(image)
+            try{
+              const result = await cloudinary.v2.uploader.upload(tmpPath) 
+              produto.image = result?.url
+            }catch{
+              throw new Exception('Duro golpe, o upload de imagem falhou!')
+            }
           }
-        }
+        
         
     
         await produto.save()
