@@ -23,7 +23,6 @@ export default class ProdutosController {
         const image = request.file('image', this.validationOptions )
         if(image){
           const tmpPath = image.tmpPath || ''
-          //console.log(image)
           try{
           const result = await cloudinary.v2.uploader.upload(tmpPath)
           body.image = result?.url
