@@ -19,7 +19,7 @@ export default class Usuarios extends BaseSchema {
       table.string('login', 16).notNullable()
                                .unique()
 
-      table.string('senha', 64).notNullable()
+      table.string('password', 255).notNullable()
       
 
       /**

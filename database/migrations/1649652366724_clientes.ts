@@ -19,7 +19,7 @@ export default class Clientes extends BaseSchema {
       table.string('login', 16).notNullable()
                                .unique()
 
-      table.string('senha', 64).notNullable()
+      table.string('password', 255).notNullable()
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasMany, hasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, beforeSave, column, HasMany, hasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
 import Pedido from './Pedido'
 import Endereco from './Endereco'
+import Hash from '@ioc:Adonis/Core/Hash'
 
 export default class Cliente extends BaseModel {
   @column({ isPrimary: true })
@@ -23,7 +24,7 @@ export default class Cliente extends BaseModel {
   public login: string
 
   @column()
-  public senha: string
+  public password: string
 
 
 
@@ -41,5 +42,11 @@ export default class Cliente extends BaseModel {
   @manyToMany(() => Endereco)
   public enderecos: ManyToMany<typeof Endereco>
 
+  @beforeSave()
+  public static async hashPassword(user: Cliente) {
+    if (user.$dirty.password) {
+      user.password = await Hash.make(user.password)
+    }
+  }
 
 }

@@ -58,7 +58,7 @@ export default class ClientesController {
         cliente.fone = body.fone
         cliente.email = body.email
         cliente.login = body.login
-        cliente.senha = body.senha
+        cliente.password = body.password
     
         
         await cliente.save()

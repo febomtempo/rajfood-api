@@ -57,7 +57,7 @@ export default class UsuariosController {
         usuario.fone = body.fone
         usuario.email = body.email
         usuario.login = body.login
-        usuario.senha = body.senha
+        usuario.password = body.password
     
         
         await usuario.save()
