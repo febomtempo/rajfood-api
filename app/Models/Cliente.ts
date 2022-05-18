@@ -21,9 +21,6 @@ export default class Cliente extends BaseModel {
   public email: string
 
   @column()
-  public login: string
-
-  @column()
   public password: string
 
 

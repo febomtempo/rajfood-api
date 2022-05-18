@@ -7,6 +7,7 @@ export default class Enderecos extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').notNullable()
                             .unsigned()
+      table.string('descricao', 12).notNullable()                        
       table.string('cep', 9).notNullable()                      
       table.string('rua', 60).notNullable()
       table.string('bairro', 60).notNullable()

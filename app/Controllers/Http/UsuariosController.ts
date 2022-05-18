@@ -56,7 +56,6 @@ export default class UsuariosController {
         usuario.sobrenome = body.sobrenome
         usuario.fone = body.fone
         usuario.email = body.email
-        usuario.login = body.login
         usuario.password = body.password
     
         
