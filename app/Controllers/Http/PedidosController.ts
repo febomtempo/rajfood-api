@@ -54,7 +54,7 @@ export default class PedidosController {
   
       pedido.id_cliente = body.id_cliente
       pedido.id_restaurante = body.id_restaurante
-      pedido.id_endereco_cliente = body.id_endereco_cliente
+      pedido.id_endereco = body.id_endereco
       pedido.total = body.total
       pedido.forma_pagamento = body.forma_pagamento
       pedido.troco = body.troco

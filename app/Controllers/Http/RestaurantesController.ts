@@ -56,6 +56,8 @@ export default class RestaurantesController {
         restaurante.descricao = body.descricao
         restaurante.fone = body.fone
         restaurante.endereco = body.endereco
+        restaurante.status = body.status
+        restaurante.valorEnvio = body.valorEnvio
     
         
         await restaurante.save()

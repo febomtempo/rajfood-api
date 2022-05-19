@@ -95,11 +95,9 @@ export default class ProdutosController {
         const body = request.body()
         const produto = await Produto.findOrFail(params.id)
     
-        produto.id_tipo_produto = body.id_tipo_produto
+        produto.id_categoria = body.id_categoria
         produto.nome = body.nome
-        produto.precoP = body.precoP
-        produto.precoM = body.precoM
-        produto.precoG = body.precoG
+        produto.preco = body.preco
         produto.descricao = body.descricao
         produto.ativo = body.ativo
 

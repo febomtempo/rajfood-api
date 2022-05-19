@@ -18,10 +18,10 @@ export default class Pedidos extends BaseSchema {
                                      .references('id')
                                      .inTable('restaurantes')
 
-      table.integer('id_endereco_cliente').notNullable()
+      table.integer('id_endereco').notNullable()
                                           .unsigned()
                                           .references('id')
-                                          .inTable('endereco_clientes')
+                                          .inTable('enderecos')
 
       table.float('total').notNullable()
                           .unsigned()

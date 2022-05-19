@@ -1,10 +1,14 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import Cliente from './Cliente'
+import Pedido from './Pedido'
 
 export default class Endereco extends BaseModel {
   @column({ isPrimary: true })
   public id: number
+
+  @column()
+  public id_cliente: string
 
   @column()
   public descricao: string
@@ -36,7 +40,14 @@ export default class Endereco extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @manyToMany(() => Cliente)
-  public clientes: ManyToMany<typeof Cliente>
+  @belongsTo(()=> Cliente, {
+    localKey: 'id_cliente'
+  })
+  public clientes: BelongsTo<typeof Cliente>
   
+  @hasMany(() => Pedido, {
+    foreignKey: 'id_endereco'
+  })
+  public pedidos: HasMany<typeof Pedido>
+
 }

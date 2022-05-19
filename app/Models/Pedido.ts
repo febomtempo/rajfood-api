@@ -3,7 +3,7 @@ import { BaseModel, BelongsTo, belongsTo, column, ManyToMany, manyToMany } from 
 import Cliente from './Cliente'
 import Restaurante from './Restaurante'
 import Produto from './Produto'
-import EnderecoCliente from './EnderecoCliente'
+import Endereco from './Endereco'
 
 export default class Pedido extends BaseModel {
   @column({ isPrimary: true })
@@ -16,7 +16,7 @@ export default class Pedido extends BaseModel {
   public id_restaurante: number
 
   @column()
-  public id_endereco_cliente: number
+  public id_endereco: number
 
   @column()
   public total: number
@@ -47,10 +47,10 @@ export default class Pedido extends BaseModel {
   })
   public restaurantes: BelongsTo<typeof Restaurante>
 
-  @belongsTo(()=> EnderecoCliente, {
-    localKey: 'id_endereco_cliente'
+  @belongsTo(()=> Endereco, {
+    localKey: 'id_endereco'
   })
-  public enderecoCliente: BelongsTo<typeof EnderecoCliente>
+  public endereco: BelongsTo<typeof Endereco>
 
   @manyToMany(() => Produto)
   public produtos: ManyToMany<typeof Produto>

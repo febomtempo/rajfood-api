@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
-import TipoProduto from './TipoProduto'
 import Pedido from './Pedido'
+import Categoria from './Categoria'
 
 
 export default class Produto extends BaseModel {
@@ -9,19 +9,13 @@ export default class Produto extends BaseModel {
   public id: number
 
   @column()
-  public id_tipo_produto: number
+  public id_categoria: number
 
   @column()
   public nome: string
 
   @column()
-  public precoP: number
-
-  @column()
-  public precoM: number
-
-  @column()
-  public precoG: number
+  public preco: number
 
   @column()
   public descricao: string
@@ -38,10 +32,10 @@ export default class Produto extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @belongsTo(()=> TipoProduto, {
-    localKey: 'id_tipo_produto'
+  @belongsTo(()=> Categoria, {
+    localKey: 'id_categoria'
   })
-  public tipoProdutos: BelongsTo<typeof TipoProduto>
+  public categoria: BelongsTo<typeof Categoria>
 
   @manyToMany(() => Pedido)
   public produtos: ManyToMany<typeof Pedido>

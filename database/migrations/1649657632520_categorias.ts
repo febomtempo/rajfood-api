@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class TipoProdutos extends BaseSchema {
-  protected tableName = 'tipo_produtos'
+export default class Categorias extends BaseSchema {
+  protected tableName = 'categorias'
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
@@ -11,8 +11,6 @@ export default class TipoProdutos extends BaseSchema {
       table.string('nome', 50).notNullable()
 
       table.string('descricao', 120).notNullable()
-
-      table.boolean('tem_tamanho').notNullable().defaultTo(false)
 
 
       /**

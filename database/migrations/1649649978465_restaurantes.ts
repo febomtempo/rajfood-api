@@ -23,7 +23,10 @@ export default class Restaurantes extends BaseSchema {
       table.string('endereco', 120).notNullable()
                                    .unique()
 
+      table.string('status', 20).notNullable().defaultTo('Fechado')
       
+      table.float('valor_envio').notNullable().unsigned()
+
             
 
       /**

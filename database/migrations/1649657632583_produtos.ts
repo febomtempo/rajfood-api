@@ -8,21 +8,16 @@ export default class Produtos extends BaseSchema {
       table.increments('id').notNullable()
                             .unsigned()
 
-      table.integer('id_tipo_produto').notNullable()
+      table.integer('id_categoria').notNullable()
                                       .unsigned()
                                       .references('id')
-                                      .inTable('tipo_produtos')
+                                      .inTable('categorias')
 
       table.string('nome', 50).notNullable()
-
       
-      table.float('preco_p').unsigned()
-      
-      table.float('preco_m').notNullable()
+      table.float('preco').notNullable()
                            .unsigned()
-      
-      table.float('preco_g').unsigned()
-      
+
       table.string('descricao', 120).notNullable()
 
 

@@ -52,6 +52,7 @@ export default class EnderecosController {
         const body = request.body()
         const endereco = await Endereco.findOrFail(params.id)
 
+        endereco.id_cliente = body.id_cliente
         endereco.descricao = body.descricao
         endereco.cep = body.cep
         endereco.rua = body.rua

@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Produto from './Produto'
 
-export default class TipoProduto extends BaseModel {
+export default class Categoria extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
@@ -12,9 +12,6 @@ export default class TipoProduto extends BaseModel {
   @column()
   public descricao: string
 
-  @column()
-  public tem_tamanho: boolean
-
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
@@ -23,7 +20,7 @@ export default class TipoProduto extends BaseModel {
 
 
   @hasMany(() => Produto, {
-    foreignKey: 'id_tipo_produto'
+    foreignKey: 'id_categoria'
   })
   public produtos: HasMany<typeof Produto>
 

@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, beforeSave, column, HasMany, hasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, beforeSave, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Pedido from './Pedido'
 import Endereco from './Endereco'
 import Hash from '@ioc:Adonis/Core/Hash'
@@ -36,8 +36,10 @@ export default class Cliente extends BaseModel {
   })
   public pedidos: HasMany<typeof Pedido>
 
-  @manyToMany(() => Endereco)
-  public enderecos: ManyToMany<typeof Endereco>
+  @hasMany(() => Endereco, {
+    foreignKey: 'id_cliente'
+  })
+  public enderecos: HasMany<typeof Endereco>
 
   @beforeSave()
   public static async hashPassword(user: Cliente) {

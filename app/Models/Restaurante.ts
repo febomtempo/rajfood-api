@@ -22,7 +22,12 @@ export default class Restaurante extends BaseModel {
   @column()
   public endereco: string
 
- 
+  @column()
+  public status: string
+
+  @column()
+  public valorEnvio: number
+
 
 
   @column.dateTime({ autoCreate: true })
