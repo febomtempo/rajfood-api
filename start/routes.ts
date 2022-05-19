@@ -64,10 +64,9 @@ Route.group(()=>{
   Route.resource('/usuario', 'UsuariosController').apiOnly()
   Route.resource('/pedido', 'PedidosController').apiOnly()
   Route.resource('/produto', 'ProdutosController').apiOnly()
-  Route.resource('/tipoProduto', 'TipoProdutosController').apiOnly()
+  Route.resource('/categoria', 'CategoriasController').apiOnly()
   Route.resource('/detalhesPedido', 'DetalhesPedidosController').apiOnly()
   Route.resource('/endereco', 'EnderecosController').apiOnly()
-  Route.resource('/enderecoCliente', 'EnderecoClientesController').apiOnly()
 }).prefix('/api')
 
 //Grupo sem Auth

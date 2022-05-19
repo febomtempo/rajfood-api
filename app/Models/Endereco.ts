@@ -8,7 +8,7 @@ export default class Endereco extends BaseModel {
   public id: number
 
   @column()
-  public id_cliente: string
+  public id_cliente: number
 
   @column()
   public descricao: string
