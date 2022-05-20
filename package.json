@@ -6,7 +6,7 @@
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
     "start": "cd build && npm install && node server.js",
-    "heroku-postbuild": "./build/ace db:seed",
+    "heroku-postbuild": "node ./build/ace db:seed",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write ."
   },
