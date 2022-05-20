@@ -1,3 +1,2 @@
-release: ENV_SILENT=true node ./build/ace migration:fresh --force
+release: ENV_SILENT=true node ./build/ace migration:fresh --force && node ace db:seed
 web: ENV_SILENT=true node ./build/server.js
-worker: sh -c ENV_SILENT=true node ./build/ace db:seed
