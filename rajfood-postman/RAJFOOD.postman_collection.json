@@ -11,6 +11,9 @@
 				{
 					"name": "Todos os Clientes",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -32,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Cristiano\",\r\n    \"sobrenome\": \"Ronaldo\",\r\n    \"fone\": \"(18) 99125-1234\",\r\n    \"email\": \"cr7@gmail.com\",\r\n    \"login\": \"cr7\",\r\n    \"senha\": \"penaldo\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Dudu\",\r\n    \"sobrenome\": \"Dibres\",\r\n    \"fone\": \"(18) 33445-1234\",\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -54,16 +57,25 @@
 				{
 					"name": "Encontrar 1 Cliente",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/cliente/3",
+							"raw": "{{URL}}/cliente/:1",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"cliente",
-								"3"
+								":1"
+							],
+							"variable": [
+								{
+									"key": "1",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -102,13 +114,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/cliente/4",
+							"raw": "{{URL}}/cliente/5",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"cliente",
-								"4"
+								"5"
 							]
 						}
 					},
@@ -122,6 +134,16 @@
 				{
 					"name": "Todos os Usuarios",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Ng.q3zUt-PSbM9e2lwluixvJ5GrGcze1Js9sgjAsAtJpq9SjKsXBLEb-gqgIF_q",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -143,7 +165,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Felipe\",\r\n    \"sobrenome\": \"Bomtempo\",\r\n    \"fone\": \"(18) 12345-1234\",\r\n    \"email\": \"felipe@gmail.com\",\r\n    \"login\": \"felipe\",\r\n    \"senha\": \"admin\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Raj\",\r\n    \"sobrenome\": \"Veloso\",\r\n    \"fone\": \"(18) 11223-3312\",\r\n    \"email\": \"raj@gmail.com\",\r\n    \"login\": \"raj\",\r\n    \"password\": \"indiano\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -165,6 +187,16 @@
 				{
 					"name": "Encontrar 1 Usuario",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Nw.rFNGfXPyvObkHfWnkiDlOf99xfvKJwiAiGHvbm36HT6ScaZNgkCC7G3BqX1N",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -233,6 +265,16 @@
 				{
 					"name": "Todos os Restaurantes",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mg.MlIp_mutYJGrDURpAPDb8aHKYPHKTfEkHPa6L7AY4lrtmttDYwiqrGpmOW_W",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -587,7 +629,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Porção\",\r\n    \"descricao\": \"Porções Variadas para aquela resenha com os amigos!\",\r\n    \"tem_tamanho\": true\r\n}",
+							"raw": "{\r\n    \"nome\": \"Lanches\",\r\n    \"descricao\": \"Diversos Lanches com nosso hambúrguer caseiro!\",\r\n    \"tem_tamanho\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -631,7 +673,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Porção\",\r\n    \"descricao\": \"Porções Variadas para aquela resenha com os amigos!\",\r\n    \"tem_tamanho\": true\r\n}",
+							"raw": "{\r\n    \"nome\": \"Lanches\",\r\n    \"descricao\": \"Diversos Lanches com nosso hambúrguer caseiro!\",\r\n    \"tem_tamanho\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -639,13 +681,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/tipoProduto/1",
+							"raw": "{{URL}}/tipoProduto/3",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"tipoProduto",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -697,8 +739,44 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id_tipo_produto\": 1,\r\n    \"nome\": \"Catubresa\",\r\n    \"preco\": 35,\r\n    \"descricao\": \"Molho de tomate, calabresa moída e catupiry\",\r\n    \"tamanho\": 3\r\n}",
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_tipo_produto",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "nome",
+									"value": "Batatão",
+									"type": "default"
+								},
+								{
+									"key": "precoP",
+									"value": "10",
+									"type": "default"
+								},
+								{
+									"key": "precoM",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "precoG",
+									"value": "15",
+									"type": "default"
+								},
+								{
+									"key": "descricao",
+									"value": "Batatão brabo - nem precisa de descrição",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Felipe/Desktop/batata frita.jpg"
+								}
+							],
 							"options": {
 								"raw": {
 									"language": "json"
@@ -741,8 +819,44 @@
 						"method": "PUT",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id_tipo_produto\": 1,\r\n    \"nome\": \"Catubresa\",\r\n    \"preco\": 35,\r\n    \"descricao\": \"Molho de tomate, calabresa moída e catupiry\",\r\n    \"tamanho\": 3\r\n}",
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_tipo_produto",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "nome",
+									"value": "FRANGAO",
+									"type": "default"
+								},
+								{
+									"key": "precoP",
+									"value": "12",
+									"type": "default"
+								},
+								{
+									"key": "precoM",
+									"value": "33",
+									"type": "default"
+								},
+								{
+									"key": "precoG",
+									"value": "100",
+									"type": "default"
+								},
+								{
+									"key": "descricao",
+									"value": "FRANGAO brabo",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Felipe/Desktop/frango-frito-americano.jpg"
+								}
+							],
 							"options": {
 								"raw": {
 									"language": "json"
@@ -997,6 +1111,78 @@
 							"path": [
 								"detalhesPedido",
 								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logout",
+			"item": [
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Mg.MlIp_mutYJGrDURpAPDb8aHKYPHKTfEkHPa6L7AY4lrtmttDYwiqrGpmOW_W",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"raj@gmail.com\",\r\n    \"password\": \"indiano\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"logout"
 							]
 						}
 					},
