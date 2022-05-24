@@ -34,7 +34,7 @@ export default class ProdutosController {
         rules.minLength(3),
         rules.maxLength(60),
       ]),
-      image: schema.string.optional(),
+      image: schema.string(),
     })
 
     const messages = {
@@ -57,7 +57,9 @@ export default class ProdutosController {
         const result = await cloudinary.v2.uploader.upload(tmpPath)
         body.image = result?.url
       } catch {
-        body.image = undefined
+        throw new Exception('Duro golpe, o upload de imagem falhou!')
+        body.image =
+          'https://res.cloudinary.com/rajfood/image/upload/v1653433375/TKQZGZF_nmrmha.jpg'
       }
     }
 
@@ -164,6 +166,8 @@ export default class ProdutosController {
         produto.image = result?.url
       } catch {
         throw new Exception('Duro golpe, o upload de imagem falhou!')
+        body.image =
+          'https://res.cloudinary.com/rajfood/image/upload/v1653433375/TKQZGZF_nmrmha.jpg'
       }
     }
 
