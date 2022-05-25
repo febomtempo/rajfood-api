@@ -50,9 +50,9 @@ export default class ProdutosController {
 
     const body = await request.validate({ schema: validationSchema, messages })
 
-    const image = request.file('image', this.validationOptions)
-    if (image) {
-      const tmpPath = image.tmpPath || ''
+    const imagem = request.file('image', this.validationOptions)
+    if (imagem) {
+      const tmpPath = imagem.tmpPath || ''
       try {
         const result = await cloudinary.v2.uploader.upload(tmpPath)
         body.image = result?.url
@@ -61,6 +61,15 @@ export default class ProdutosController {
         body.image =
           'https://res.cloudinary.com/rajfood/image/upload/v1653433375/TKQZGZF_nmrmha.jpg'
       }
+    }
+
+    const produto = await Produto.create(body)
+
+    response.status(201)
+
+    return {
+      message: 'produto registrado com sucesso!',
+      data: produto,
     }
 
     /*if(image){
@@ -76,15 +85,6 @@ export default class ProdutosController {
     
           body.image = imageName
         } */
-
-    const produto = await Produto.create(body)
-
-    response.status(201)
-
-    return {
-      message: 'produto registrado com sucesso!',
-      data: produto,
-    }
   }
 
   public async index() {
@@ -156,14 +156,12 @@ export default class ProdutosController {
     produto.descricao = body.descricao
     produto.ativo = body.ativo
 
-    const image = request.file('image', this.validationOptions)
-
-    if (image) {
-      const tmpPath = image.tmpPath || ''
-      //console.log(image)
+    const imagem = request.file('image', this.validationOptions)
+    if (imagem) {
+      const tmpPath = imagem.tmpPath || ''
       try {
         const result = await cloudinary.v2.uploader.upload(tmpPath)
-        produto.image = result?.url
+        body.image = result?.url
       } catch {
         throw new Exception('Duro golpe, o upload de imagem falhou!')
         body.image =
