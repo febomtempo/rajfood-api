@@ -13,7 +13,7 @@ cloudinary.v2.config({
 
 export default class ProdutosController {
   private validationOptions = {
-    types: ['image'],
+    types: ['imagem'],
     size: '2mb',
   }
 
@@ -34,7 +34,7 @@ export default class ProdutosController {
         rules.minLength(3),
         rules.maxLength(60),
       ]),
-      image: schema.string(),
+      image: schema.string.optional(),
     })
 
     const messages = {
@@ -50,7 +50,7 @@ export default class ProdutosController {
 
     const body = await request.validate({ schema: validationSchema, messages })
 
-    const imagem = request.file('image', this.validationOptions)
+    const imagem = request.file('imagem', this.validationOptions)
     if (imagem) {
       const tmpPath = imagem.tmpPath || ''
       try {
@@ -156,7 +156,7 @@ export default class ProdutosController {
     produto.descricao = body.descricao
     produto.ativo = body.ativo
 
-    const imagem = request.file('image', this.validationOptions)
+    const imagem = request.file('imagem', this.validationOptions)
     if (imagem) {
       const tmpPath = imagem.tmpPath || ''
       try {

@@ -37,7 +37,6 @@ Route.group(()=>{
 }).prefix('/api')
 */
 
-
 /*
 //Grupo Auth Cliente e Admin
 Route.group(()=>{
@@ -59,7 +58,7 @@ Route.group(()=>{
 
 */
 
-Route.group(()=>{
+Route.group(() => {
   Route.resource('/cliente', 'ClientesController').apiOnly()
   Route.resource('/usuario', 'UsuariosController').apiOnly()
   Route.resource('/pedido', 'PedidosController').apiOnly()
@@ -70,21 +69,17 @@ Route.group(()=>{
 }).prefix('/api')
 
 //Grupo sem Auth
-Route.group(()=>{
+Route.group(() => {
   Route.post('/login', 'AuthController.login')
 }).prefix('/api')
 
-
-Route.group(() =>{
-
+Route.group(() => {
   Route.resource('/restaurante', 'RestaurantesController').apiOnly()
-
-}).prefix('/api').middleware('auth')
-
+}).prefix('/api')
 
 Route.post('/logout', async ({ auth }) => {
   await auth.use('api').revoke()
   return {
-    revoked: true
+    revoked: true,
   }
 }).prefix('/api')
