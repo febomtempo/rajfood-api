@@ -31,9 +31,6 @@ export default class Endereco extends BaseModel {
   @column()
   public numero: string
 
-  @column()
-  public complemento: string
-
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

@@ -14,7 +14,6 @@ export default class Enderecos extends BaseSchema {
       table.string('cidade', 60).notNullable()
       table.string('estado', 60).notNullable()
       table.string('numero', 20).notNullable()
-      table.string('complemento', 60)
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

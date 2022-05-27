@@ -45,8 +45,6 @@ export default class EnderecosController {
         rules.minLength(1),
         rules.maxLength(20),
       ]),
-
-      complemento: schema.string.optional({ trim: true }, [rules.maxLength(60)]),
     })
 
     const messages = {
@@ -139,8 +137,6 @@ export default class EnderecosController {
         rules.minLength(1),
         rules.maxLength(20),
       ]),
-
-      complemento: schema.string({ trim: true }, [rules.maxLength(60)]),
     })
 
     const messages = {
@@ -165,7 +161,6 @@ export default class EnderecosController {
     endereco.cidade = body.cidade
     endereco.estado = body.estado
     endereco.numero = body.numero
-    endereco.complemento = body.complemento
 
     await endereco.save()
 
