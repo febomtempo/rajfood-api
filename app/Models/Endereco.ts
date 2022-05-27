@@ -40,14 +40,13 @@ export default class Endereco extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @belongsTo(()=> Cliente, {
-    localKey: 'id_cliente'
+  @belongsTo(() => Cliente, {
+    localKey: 'id_cliente',
   })
   public clientes: BelongsTo<typeof Cliente>
-  
+
   @hasMany(() => Pedido, {
-    foreignKey: 'id_endereco'
+    foreignKey: 'id_endereco',
   })
   public pedidos: HasMany<typeof Pedido>
-
 }

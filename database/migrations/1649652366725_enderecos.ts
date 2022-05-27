@@ -3,16 +3,12 @@ import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 export default class Enderecos extends BaseSchema {
   protected tableName = 'enderecos'
 
-  public async up () {
+  public async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id').notNullable()
-                            .unsigned()
-      table.integer('id_cliente').notNullable()
-                                 .unsigned()
-                                 .references('id')
-                                 .inTable('clientes')
-      table.string('descricao', 12).notNullable()                        
-      table.string('cep', 9).notNullable()                      
+      table.increments('id').notNullable().unsigned()
+      table.integer('id_cliente').notNullable().unsigned().references('id').inTable('clientes')
+      table.string('descricao', 30).notNullable()
+      table.string('cep', 9).notNullable()
       table.string('rua', 60).notNullable()
       table.string('bairro', 60).notNullable()
       table.string('cidade', 60).notNullable()
@@ -28,7 +24,7 @@ export default class Enderecos extends BaseSchema {
     })
   }
 
-  public async down () {
+  public async down() {
     this.schema.dropTable(this.tableName)
   }
 }

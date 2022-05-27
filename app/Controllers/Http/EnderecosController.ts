@@ -12,7 +12,7 @@ export default class EnderecosController {
       descricao: schema.string({ trim: true }, [
         rules.required(),
         rules.minLength(3),
-        rules.maxLength(20),
+        rules.maxLength(30),
       ]),
       cep: schema.string({ trim: true }, [
         rules.required(),
@@ -46,7 +46,7 @@ export default class EnderecosController {
         rules.maxLength(20),
       ]),
 
-      complemento: schema.string({ trim: true }, [rules.maxLength(60)]),
+      complemento: schema.string.optional({ trim: true }, [rules.maxLength(60)]),
     })
 
     const messages = {
