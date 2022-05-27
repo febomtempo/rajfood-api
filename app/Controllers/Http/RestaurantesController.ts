@@ -25,11 +25,6 @@ export default class RestaurantesController {
         rules.minLength(6),
         rules.maxLength(60),
       ]),
-      status: schema.string({ trim: true }, [
-        rules.required(),
-        rules.minLength(3),
-        rules.maxLength(20),
-      ]),
       valorEnvio: schema.number([rules.required(), rules.unsigned()]),
     })
 
@@ -104,11 +99,7 @@ export default class RestaurantesController {
         rules.minLength(6),
         rules.maxLength(60),
       ]),
-      status: schema.string({ trim: true }, [
-        rules.required(),
-        rules.minLength(3),
-        rules.maxLength(20),
-      ]),
+      aberto: schema.boolean(),
       valorEnvio: schema.number([rules.required(), rules.unsigned()]),
     })
 
@@ -131,7 +122,7 @@ export default class RestaurantesController {
     restaurante.descricao = body.descricao
     restaurante.fone = body.fone
     restaurante.endereco = body.endereco
-    restaurante.status = body.status
+    restaurante.aberto = body.aberto
     restaurante.valorEnvio = body.valorEnvio
 
     await restaurante.save()

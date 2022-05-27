@@ -23,12 +23,10 @@ export default class Restaurante extends BaseModel {
   public endereco: string
 
   @column()
-  public status: string
+  public aberto: boolean
 
   @column()
   public valorEnvio: number
-
-
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -36,14 +34,13 @@ export default class Restaurante extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @belongsTo(()=> Usuario, {
-    localKey: 'id_usuario'
+  @belongsTo(() => Usuario, {
+    localKey: 'id_usuario',
   })
   public usuarios: BelongsTo<typeof Usuario>
 
   @hasMany(() => Pedido, {
-    foreignKey: 'id_restaurante'
+    foreignKey: 'id_restaurante',
   })
   public restaurantes: HasMany<typeof Pedido>
-
 }

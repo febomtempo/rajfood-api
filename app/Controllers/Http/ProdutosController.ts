@@ -3,7 +3,6 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Produto from 'App/Models/Produto'
 import cloudinary from 'cloudinary'
 import Env from '@ioc:Adonis/Core/Env'
-import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 cloudinary.v2.config({
   cloud_name: Env.get('CLOUD_NAME'),
@@ -13,46 +12,15 @@ cloudinary.v2.config({
 
 export default class ProdutosController {
   private validationOptions = {
-    types: ['imagem'],
+    types: ['image'],
     size: '2mb',
   }
 
   public async store({ request, response }: HttpContextContract) {
-    const validationSchema = schema.create({
-      id_categoria: schema.number([
-        rules.required(),
-        rules.exists({ table: 'categorias', column: 'id' }),
-      ]),
-      nome: schema.string({ trim: true }, [
-        rules.required(),
-        rules.minLength(3),
-        rules.maxLength(30),
-      ]),
-      preco: schema.number([rules.required(), rules.unsigned()]),
-      descricao: schema.string({ trim: true }, [
-        rules.required(),
-        rules.minLength(3),
-        rules.maxLength(60),
-      ]),
-      image: schema.string.optional(),
-    })
-
-    const messages = {
-      minLength: '{{ field }} deve ter no mínimo {{ options.minLength }} caracteres',
-      maxLength: '{{ field }} deve ter no máximo {{ options.maxLength }} caracteres',
-      required: '{{ field }} é obrigatório',
-      unique: '{{ field }} deve ser único, esse {{ field }} já foi utilizado',
-      regex: '{{ field}} deve seguir o padrão: xxx.xxx.xxx-xx onde x = número',
-      number: '{{ field }} deve conter um número',
-      exists: '{{ field }} deve existir na tabela {{ options.table }}',
-      boolean: '{{ field }} deve ser true ou false, 1 ou 0',
-    }
-
-    const body = await request.validate({ schema: validationSchema, messages })
-
-    const imagem = request.file('imagem', this.validationOptions)
-    if (imagem) {
-      const tmpPath = imagem.tmpPath || ''
+    const body = request.body()
+    const image = request.file('image', this.validationOptions)
+    if (image) {
+      const tmpPath = image.tmpPath || ''
       try {
         const result = await cloudinary.v2.uploader.upload(tmpPath)
         body.image = result?.url
@@ -61,15 +29,6 @@ export default class ProdutosController {
         body.image =
           'https://res.cloudinary.com/rajfood/image/upload/v1653433375/TKQZGZF_nmrmha.jpg'
       }
-    }
-
-    const produto = await Produto.create(body)
-
-    response.status(201)
-
-    return {
-      message: 'produto registrado com sucesso!',
-      data: produto,
     }
 
     /*if(image){
@@ -85,6 +44,15 @@ export default class ProdutosController {
     
           body.image = imageName
         } */
+
+    const produto = await Produto.create(body)
+
+    response.status(201)
+
+    return {
+      message: 'produto registrado com sucesso!',
+      data: produto,
+    }
   }
 
   public async index() {
@@ -114,40 +82,7 @@ export default class ProdutosController {
   }
 
   public async update({ params, request }: HttpContextContract) {
-    const validationSchema = schema.create({
-      id_categoria: schema.number([
-        rules.required(),
-        rules.exists({ table: 'categorias', column: 'id' }),
-      ]),
-      nome: schema.string({ trim: true }, [
-        rules.required(),
-        rules.minLength(3),
-        rules.maxLength(30),
-      ]),
-      preco: schema.number([rules.required(), rules.unsigned()]),
-      descricao: schema.string({ trim: true }, [
-        rules.required(),
-        rules.minLength(3),
-        rules.maxLength(60),
-      ]),
-      ativo: schema.boolean(),
-
-      image: schema.string.optional(),
-    })
-
-    const messages = {
-      minLength: '{{ field }} deve ter no mínimo {{ options.minLength }} caracteres',
-      maxLength: '{{ field }} deve ter no máximo {{ options.maxLength }} caracteres',
-      required: '{{ field }} é obrigatório',
-      unique: '{{ field }} deve ser único, esse {{ field }} já foi utilizado',
-      regex: '{{ field}} deve seguir o padrão: xxx.xxx.xxx-xx onde x = número',
-      number: '{{ field }} deve conter um número',
-      exists: '{{ field }} deve existir na tabela {{ options.table }}',
-      boolean: '{{ field }} deve ser true ou false, 1 ou 0',
-    }
-
-    const body = await request.validate({ schema: validationSchema, messages })
-
+    const body = request.body()
     const produto = await Produto.findOrFail(params.id)
 
     produto.id_categoria = body.id_categoria
@@ -156,12 +91,14 @@ export default class ProdutosController {
     produto.descricao = body.descricao
     produto.ativo = body.ativo
 
-    const imagem = request.file('imagem', this.validationOptions)
-    if (imagem) {
-      const tmpPath = imagem.tmpPath || ''
+    const image = request.file('image', this.validationOptions)
+
+    if (image) {
+      const tmpPath = image.tmpPath || ''
+      //console.log(image)
       try {
         const result = await cloudinary.v2.uploader.upload(tmpPath)
-        body.image = result?.url
+        produto.image = result?.url
       } catch {
         throw new Exception('Duro golpe, o upload de imagem falhou!')
         body.image =
