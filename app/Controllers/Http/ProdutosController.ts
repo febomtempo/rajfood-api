@@ -20,7 +20,9 @@ export default class ProdutosController {
     const body = request.body()
     const image = request.file('image', this.validationOptions)
     if (image) {
-      const tmpPath = image.tmpPath || ''
+      const tmpPath =
+        image.tmpPath ||
+        'https://res.cloudinary.com/rajfood/image/upload/v1653433375/TKQZGZF_nmrmha.jpg'
       try {
         const result = await cloudinary.v2.uploader.upload(tmpPath)
         body.image = result?.url
@@ -94,7 +96,9 @@ export default class ProdutosController {
     const image = request.file('image', this.validationOptions)
 
     if (image) {
-      const tmpPath = image.tmpPath || ''
+      const tmpPath =
+        image.tmpPath ||
+        'https://res.cloudinary.com/rajfood/image/upload/v1653433375/TKQZGZF_nmrmha.jpg'
       //console.log(image)
       try {
         const result = await cloudinary.v2.uploader.upload(tmpPath)
