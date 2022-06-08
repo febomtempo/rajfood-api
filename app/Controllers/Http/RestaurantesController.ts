@@ -13,7 +13,7 @@ export default class RestaurantesController {
       descricao: schema.string({ trim: true }, [
         rules.required(),
         rules.minLength(3),
-        rules.maxLength(60),
+        rules.maxLength(120),
       ]),
       fone: schema.string({ trim: true }, [
         rules.required(),
@@ -87,7 +87,7 @@ export default class RestaurantesController {
       descricao: schema.string({ trim: true }, [
         rules.required(),
         rules.minLength(3),
-        rules.maxLength(60),
+        rules.maxLength(120),
       ]),
       fone: schema.string({ trim: true }, [
         rules.required(),
