@@ -98,17 +98,7 @@ export default class UsuariosController {
         rules.minLength(10),
         rules.maxLength(20),
       ]),
-      email: schema.string({ trim: true }, [
-        rules.required(),
-        rules.unique({ table: 'usuarios', column: 'email' }),
-        rules.unique({ table: 'clientes', column: 'email' }),
-        rules.email(),
-      ]),
-      password: schema.string({ trim: true }, [
-        rules.required(),
-        rules.minLength(6),
-        rules.maxLength(64),
-      ]),
+      email: schema.string({ trim: true }, [rules.required(), rules.email()]),
     })
 
     const messages = {
@@ -129,7 +119,6 @@ export default class UsuariosController {
     usuario.sobrenome = body.sobrenome
     usuario.fone = body.fone
     usuario.email = body.email
-    usuario.password = body.password
 
     await usuario.save()
 

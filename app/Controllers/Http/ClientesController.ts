@@ -107,17 +107,7 @@ export default class ClientesController {
         rules.minLength(10),
         rules.maxLength(20),
       ]),
-      email: schema.string({ trim: true }, [
-        rules.required(),
-        rules.unique({ table: 'usuarios', column: 'email' }),
-        rules.unique({ table: 'clientes', column: 'email' }),
-        rules.email(),
-      ]),
-      password: schema.string({ trim: true }, [
-        rules.required(),
-        rules.minLength(6),
-        rules.maxLength(64),
-      ]),
+      email: schema.string({ trim: true }, [rules.required(), rules.email()]),
     })
 
     const messages = {
@@ -138,7 +128,6 @@ export default class ClientesController {
     cliente.sobrenome = body.sobrenome
     cliente.fone = body.fone
     cliente.email = body.email
-    cliente.password = body.password
 
     await cliente.save()
 
