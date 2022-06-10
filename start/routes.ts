@@ -68,6 +68,7 @@ Route.group(() => {
   Route.resource('/endereco', 'EnderecosController').apiOnly()
   Route.resource('/test', 'TestsController').apiOnly()
   Route.get('/enderecoAlternativa/:id', 'AlternativeEnderecosController.show')
+  Route.get('/pedidoAlternativa/:id', 'AlternativePedidosController.show')
 }).prefix('/api')
 
 //Grupo sem Auth
