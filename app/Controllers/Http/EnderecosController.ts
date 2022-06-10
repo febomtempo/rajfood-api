@@ -78,7 +78,7 @@ export default class EnderecosController {
   }
 
   public async show({ params }: HttpContextContract) {
-    const endereco = await Endereco.findByOrFail('id_cliente', params.id)
+    const endereco = await Endereco.findOrFail(params.id)
 
     return {
       data: endereco,
