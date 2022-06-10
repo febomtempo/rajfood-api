@@ -1,5 +1,12 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BaseModel,
+  BelongsTo,
+  belongsTo,
+  column,
+  ManyToMany,
+  manyToMany,
+} from '@ioc:Adonis/Lucid/Orm'
 import Cliente from './Cliente'
 import Restaurante from './Restaurante'
 import Produto from './Produto'
@@ -30,29 +37,31 @@ export default class Pedido extends BaseModel {
   @column()
   public status: number
 
-
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @belongsTo(()=> Cliente, {
-    localKey: 'id_cliente'
+  @belongsTo(() => Cliente, {
+    foreignKey: 'id_cliente',
+    localKey: 'id',
   })
   public clientes: BelongsTo<typeof Cliente>
 
-  @belongsTo(()=> Restaurante, {
-    localKey: 'id_restaurante'
+  @belongsTo(() => Restaurante, {
+    localKey: 'id_restaurante',
   })
   public restaurantes: BelongsTo<typeof Restaurante>
 
-  @belongsTo(()=> Endereco, {
-    localKey: 'id_endereco'
+  @belongsTo(() => Endereco, {
+    foreignKey: 'id_endereco',
+    localKey: 'id',
   })
   public endereco: BelongsTo<typeof Endereco>
 
-  @manyToMany(() => Produto)
+  @manyToMany(() => Produto, {
+    pivotTable: 'detalhes_pedidos',
+  })
   public produtos: ManyToMany<typeof Produto>
-
 }

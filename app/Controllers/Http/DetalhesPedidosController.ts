@@ -5,11 +5,8 @@ import { schema, rules } from '@ioc:Adonis/Core/Validator'
 export default class DetalhesPedidosController {
   public async store({ request, response }: HttpContextContract) {
     const validationSchema = schema.create({
-      id_pedido: schema.number([
-        rules.required(),
-        rules.exists({ table: 'pedidos', column: 'id' }),
-      ]),
-      id_produto: schema.number([
+      pedidoId: schema.number([rules.required(), rules.exists({ table: 'pedidos', column: 'id' })]),
+      produtoId: schema.number([
         rules.required(),
         rules.exists({ table: 'produtos', column: 'id' }),
       ]),

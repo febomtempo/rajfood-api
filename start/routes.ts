@@ -66,6 +66,7 @@ Route.group(() => {
   Route.resource('/categoria', 'CategoriasController').apiOnly()
   Route.resource('/detalhesPedido', 'DetalhesPedidosController').apiOnly()
   Route.resource('/endereco', 'EnderecosController').apiOnly()
+  Route.resource('/test', 'TestsController').apiOnly()
 }).prefix('/api')
 
 //Grupo sem Auth

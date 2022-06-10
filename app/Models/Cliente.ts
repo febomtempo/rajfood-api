@@ -20,10 +20,8 @@ export default class Cliente extends BaseModel {
   @column()
   public email: string
 
-  @column({serializeAs : null})
+  @column({ serializeAs: null })
   public password: string
-
-
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -32,12 +30,13 @@ export default class Cliente extends BaseModel {
   public updatedAt: DateTime
 
   @hasMany(() => Pedido, {
-    foreignKey: 'id_cliente'
+    foreignKey: 'id_cliente',
+    localKey: 'id',
   })
   public pedidos: HasMany<typeof Pedido>
 
   @hasMany(() => Endereco, {
-    foreignKey: 'id_cliente'
+    foreignKey: 'id_cliente',
   })
   public enderecos: HasMany<typeof Endereco>
 
@@ -47,5 +46,4 @@ export default class Cliente extends BaseModel {
       user.password = await Hash.make(user.password)
     }
   }
-
 }

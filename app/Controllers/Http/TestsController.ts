@@ -22,7 +22,7 @@ let statusPedido = (num: number): string => {
   return status
 }
 
-export default class PedidosController {
+export default class TestsController {
   public async store({ request, response }: HttpContextContract) {
     const validationSchema = schema.create({
       id_cliente: schema.number([
@@ -79,7 +79,7 @@ export default class PedidosController {
   }
 
   public async index() {
-    const pedido = await Pedido.all()
+    const pedido = await Pedido.query().preload('produtos').preload('clientes').preload('endereco')
 
     return {
       data: pedido,

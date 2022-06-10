@@ -8,10 +8,10 @@ export default class DetalhesPedido extends BaseModel {
   public id: number
 
   @column()
-  public id_pedido: number
+  public pedidoId: number
 
   @column()
-  public id_produto: number
+  public produtoId: number
 
   @column()
   public quantidade: number
@@ -25,13 +25,13 @@ export default class DetalhesPedido extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @belongsTo(()=> Pedido, {
-    localKey: 'id_pedido'
+  @belongsTo(() => Pedido, {
+    localKey: 'pedidoId',
   })
   public detalhe_pedido: BelongsTo<typeof Pedido>
 
-  @belongsTo(()=> Produto, {
-    localKey: 'id_produto'
+  @belongsTo(() => Produto, {
+    localKey: 'produtoId',
   })
   public detalhe_produto: BelongsTo<typeof Produto>
 }
