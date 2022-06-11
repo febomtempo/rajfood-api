@@ -88,7 +88,6 @@ export default class PedidosController {
 
   public async show({ params }: HttpContextContract) {
     const pedido = await Pedido.findOrFail(params.id)
-
     return {
       data: pedido,
     }
