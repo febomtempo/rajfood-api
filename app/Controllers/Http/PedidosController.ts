@@ -59,16 +59,24 @@ export default class PedidosController {
 
     response.status(201)
 
+    const pedidoMail = await Pedido.findOrFail(pedido.id)
+
+    await pedidoMail.load('clientes')
+
     await Mail.sendLater((message) => {
       message
         .from('rajfood2022@hotmail.com', 'RajFood')
         .to('rajfood2022@hotmail.com')
         .subject('Acompanhamento de Status do Pedido #' + pedido.id.toString())
         .text(
-          'Seu pedido já foi efetuado!!!\n\nO status do pedido #' +
+          'Olá, ' +
+            pedidoMail.clientes.nome +
+            ' ' +
+            pedidoMail.clientes.sobrenome +
+            '\n\nSeu pedido já foi efetuado!!!\n\nO status do pedido #' +
             pedido.id.toString() +
             ' é: \n\n' +
-            'Pedido em Produção'
+            statusPedido(pedidoMail.status)
         )
     })
 
