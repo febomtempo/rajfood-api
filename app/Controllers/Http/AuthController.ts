@@ -11,7 +11,7 @@ export default class AuthController {
       let token
       if (cliente) {
         token = await auth.use('api').attempt(email, password, {
-          expiresIn: '30mins',
+          expiresIn: '60mins',
           name: cliente?.serialize().email,
         })
       }
