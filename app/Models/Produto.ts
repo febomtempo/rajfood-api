@@ -4,6 +4,7 @@ import {
   BelongsTo,
   belongsTo,
   column,
+  computed,
   manyToMany,
   ManyToMany,
 } from '@ioc:Adonis/Lucid/Orm'
@@ -45,6 +46,17 @@ export default class Produto extends BaseModel {
 
   @manyToMany(() => Pedido, {
     pivotTable: 'detalhes_pedidos',
+    pivotColumns: ['quantidade', 'valor_total_item'],
   })
   public produtos: ManyToMany<typeof Pedido>
+
+  @computed()
+  public get pivot_quantidade() {
+    return this.$extras.pivot_quantidade
+  }
+
+  @computed()
+  public get pivot_valor_total_item() {
+    return this.$extras.pivot_valor_total_item
+  }
 }

@@ -62,6 +62,7 @@ export default class Pedido extends BaseModel {
 
   @manyToMany(() => Produto, {
     pivotTable: 'detalhes_pedidos',
+    pivotColumns: ['quantidade', 'valor_total_item'],
   })
   public produtos: ManyToMany<typeof Produto>
 }

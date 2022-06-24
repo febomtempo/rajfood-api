@@ -79,8 +79,9 @@ export default class TestsController {
   }
 
   public async index() {
-    const pedido = await Pedido.query().preload('produtos').preload('clientes').preload('endereco')
-
+    const pedido = await Pedido.query().preload('produtos', (query) =>
+      query.pivotColumns(['quantidade', 'valor_total_item'])
+    )
     return {
       data: pedido,
     }
