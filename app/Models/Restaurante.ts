@@ -1,14 +1,14 @@
 import { DateTime } from 'luxon'
 import { BaseModel, BelongsTo, belongsTo, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
-import Usuario from './Usuario'
 import Pedido from './Pedido'
+import Cliente from './Cliente'
 
 export default class Restaurante extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public id_usuario: number
+  public id_cliente: number
 
   @column()
   public nome: string
@@ -34,10 +34,10 @@ export default class Restaurante extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @belongsTo(() => Usuario, {
-    localKey: 'id_usuario',
+  @belongsTo(() => Cliente, {
+    localKey: 'id_cliente',
   })
-  public usuarios: BelongsTo<typeof Usuario>
+  public clientes: BelongsTo<typeof Cliente>
 
   @hasMany(() => Pedido, {
     foreignKey: 'id_restaurante',

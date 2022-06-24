@@ -10,13 +10,19 @@ let statusPedido = (num: number): string => {
       status = 'Pedido Cancelado'
       break
     case 1:
-      status = 'Pedido em Produção'
+      status = 'Pedido Pendente'
       break
     case 2:
-      status = 'Pedido saiu para Entrega'
+      status = 'Pedido Aprovado'
       break
     case 3:
-      status = 'Pedido Entregue'
+      status = 'Pedido em Preparação'
+      break
+    case 4:
+      status = 'Saiu para Entrega'
+      break
+    case 5:
+      status = 'Pedido Finalizado'
       break
   }
   return status
@@ -87,8 +93,10 @@ export default class PedidosController {
   }
 
   public async index() {
-    const pedido = await Pedido.all()
-
+    const pedido = await Pedido.query()
+      .preload('produtos', (query) => query.pivotColumns(['quantidade', 'valor_total_item']))
+      .preload('clientes')
+      .preload('endereco')
     return {
       data: pedido,
     }

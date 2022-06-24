@@ -3,6 +3,7 @@ import { BaseModel, beforeSave, column, HasMany, hasMany } from '@ioc:Adonis/Luc
 import Pedido from './Pedido'
 import Endereco from './Endereco'
 import Hash from '@ioc:Adonis/Core/Hash'
+import Restaurante from './Restaurante'
 
 export default class Cliente extends BaseModel {
   @column({ isPrimary: true })
@@ -19,6 +20,9 @@ export default class Cliente extends BaseModel {
 
   @column()
   public email: string
+
+  @column()
+  public role: string
 
   @column({ serializeAs: null })
   public password: string
@@ -39,6 +43,11 @@ export default class Cliente extends BaseModel {
     foreignKey: 'id_cliente',
   })
   public enderecos: HasMany<typeof Endereco>
+
+  @hasMany(() => Restaurante, {
+    foreignKey: 'id_usuario',
+  })
+  public restaurantes: HasMany<typeof Restaurante>
 
   @beforeSave()
   public static async hashPassword(user: Cliente) {

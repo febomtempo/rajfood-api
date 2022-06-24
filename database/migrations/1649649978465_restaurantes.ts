@@ -7,7 +7,7 @@ export default class Restaurantes extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id').notNullable().unsigned()
 
-      table.integer('id_usuario').notNullable().unsigned().references('id').inTable('usuarios')
+      table.integer('id_cliente').notNullable().unsigned().references('id').inTable('clientes')
 
       table.string('nome', 50).notNullable()
 

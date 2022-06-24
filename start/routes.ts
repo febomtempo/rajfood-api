@@ -60,15 +60,14 @@ Route.group(()=>{
 
 Route.group(() => {
   Route.resource('/cliente', 'ClientesController').apiOnly()
-  Route.resource('/usuario', 'UsuariosController').apiOnly()
-  Route.resource('/pedido', 'PedidosController').apiOnly()
+  /*Route.resource('/pedido', 'PedidosController').apiOnly()*/
   Route.resource('/produto', 'ProdutosController').apiOnly()
   Route.resource('/categoria', 'CategoriasController').apiOnly()
   Route.resource('/detalhesPedido', 'DetalhesPedidosController').apiOnly()
   Route.resource('/endereco', 'EnderecosController').apiOnly()
   Route.resource('/test', 'TestsController').apiOnly()
   Route.get('/enderecoAlternativa/:id', 'AlternativeEnderecosController.show')
-  Route.get('/pedidoAlternativa/:id', 'AlternativePedidosController.show')
+  /*Route.get('/pedidoAlternativa/:id', 'AlternativePedidosController.show')*/
 }).prefix('/api')
 
 //Grupo sem Auth
@@ -86,3 +85,12 @@ Route.post('/logout', async ({ auth }) => {
     revoked: true,
   }
 }).prefix('/api')
+
+Route.get('/pedido', 'PedidosController.index').prefix('/api').middleware('acl:admin')
+Route.get('/pedido/:id', 'PedidosController.show').prefix('/api').middleware('acl:admin,cliente')
+Route.get('/pedidoAlternativa/:id', 'AlternativePedidosController.show')
+  .prefix('/api')
+  .middleware('acl:admin,cliente')
+Route.post('/pedido', 'PedidosController.store').prefix('/api').middleware('acl:admin,cliente')
+Route.put('/pedido/:id', 'PedidosController.update').prefix('/api').middleware('acl:admin')
+Route.delete('/pedido/:id', 'PedidosController.destroy').prefix('/api').middleware('acl:admin')
