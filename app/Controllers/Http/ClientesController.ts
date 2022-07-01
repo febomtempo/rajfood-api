@@ -23,7 +23,6 @@ export default class ClientesController {
       ]),
       email: schema.string({ trim: true }, [
         rules.required(),
-        rules.unique({ table: 'usuarios', column: 'email' }),
         rules.unique({ table: 'clientes', column: 'email' }),
         rules.email(),
       ]),
